@@ -1,36 +1,28 @@
-# GitHub Actions
-name: Snake
+name: Snake Game
 
-on: 
-  workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+    - name: Generate Snake GIF
+      run: python snake.py
 
-      - name: Install GitHub Contributions
-        run: |
-          git clone https://github.com/jasonEtco/github-contributions.git
-          cd github-contributions
-          npm install
+    - name: Upload Snake GIF
+      uses: actions/upload-artifact@v2
+      with:
+        name: snake.gif
+        path: snake.gif
 
-      - name: Run GitHub Contributions
-        run: |
-          ./github-contributions/cli.js --token ${{ secrets.GH_TOKEN }} --user barretot
-
-      - name: Commit and push if changes
-        run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add .
-          git diff --quiet || git commit -am "Update GitHub contributions (snake) [skip ci]"
-          git push
+    - name: Update README
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./
+        force_orphan: true
