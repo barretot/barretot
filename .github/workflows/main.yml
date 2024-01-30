@@ -14,12 +14,13 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Install GitHub Contributions
+        run: npx github-contributions@latest --token ${{ secrets.GH_TOKEN }} --user barretot
 
-      - name: Run snake script
-        run: python snake.py
-        env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Commit and push if changes
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git diff --quiet || git commit -am "Update GitHub contributions (snake) [skip ci]"
+          git push
