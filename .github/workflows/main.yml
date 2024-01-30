@@ -35,8 +35,12 @@ jobs:
           name: snake.gif
           path: ./
 
+      - name: Set up permissions
+        run: chmod -R 755 .
+
       - name: Set up git
         run: |
+          pwd  # Imprimir o diretório de trabalho atual
           git config --global user.email "barretoruan77@gmail.com"
           git config --global user.name "barretot"
           git remote set-url origin https://${{ secrets.PAT }}@github.com/barretot.git
