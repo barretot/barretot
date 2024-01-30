@@ -24,8 +24,19 @@ jobs:
         name: snake.gif
         path: snake.gif
 
-    - name: Update README
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        publish_dir: ./
-        force_orphan: true
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Snake GIF
+        uses: actions/download-artifact@v2
+        with:
+          name: snake.gif
+          path: ./  # Onde você quer que o arquivo seja baixado
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+          publish_dir: ./
+          force_orphan: true
