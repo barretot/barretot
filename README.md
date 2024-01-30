@@ -35,4 +35,6 @@ I am a Backend Developer
 
 ### GitHub Activity
 
-![Snake animation](https://github.com/ubiratan-motta/ubiratan-motta/blob/output/github-contribution-grid-snake.svg)
+![Snake animation](https://github.com/barretot/barretot/blob/output/github-contribution-grid-snake.svg)
+
+
