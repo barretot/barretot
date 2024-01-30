@@ -32,11 +32,3 @@ I am a Backend Developer
     <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank" />
   </a> 
 </div>
-
-### GitHub Activity
-
-![Snake Game](https://raw.githubusercontent.com/barretot/barretot/main/snake.gif)
-
-
-
-
