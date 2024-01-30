@@ -36,9 +36,14 @@ jobs:
           name: snake.gif
           path: ./
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.GH_TOKEN }}
+          deploy_key: ${{ secrets.NOME_DO_SEGREDO }}
           publish_dir: ./
           force_orphan: true
