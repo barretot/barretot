@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install PIL
+      run: pip install Pillow
+
     - name: Generate Snake GIF
       run: python snake.py
 
