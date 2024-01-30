@@ -1,3 +1,4 @@
+# GitHub Actions
 name: Snake
 
 on: 
@@ -11,13 +12,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          python-version: 3.x
+          node-version: '14'
 
       - name: Install GitHub Contributions
-        run: npx github-contributions@latest --token ${{ secrets.PAT_TOKEN }} --user barretot
+        run: |
+          npm install -g github-contributions@latest
+
+      - name: Run GitHub Contributions
+        run: npx github-contributions --token ${{ secrets.GH_TOKEN }} --user barretot
 
       - name: Commit and push if changes
         run: |
