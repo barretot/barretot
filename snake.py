@@ -43,7 +43,7 @@ for i in range(snake_length):
 
 # Desenhar os commits
 for commit in commits:
-    commit_hash = commit["sha"][:7]
+    commit_hash = commit["sha"][0:7]
     draw.text((margin, height - margin - cell_size), commit_hash, fill=(0, 0, 0))
 
 # Salvar a imagem como GIF
