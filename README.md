@@ -6,7 +6,7 @@ I am a Backend Developer
 
 ### GitHub Statistics
 
-[![Barretot's GitHub stats](https://github-readme-stats.vercel.app/api?username=barretot&show_icons=true&theme=radical&include_all_commits=true&count_private=true)](https://github.com/barretot)
+[![Barretot's GitHub stats](https://github-readme-stats.vercel.app/api?username=barretot&show_icons=true&theme=radical)](https://github.com/barretot)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=barretot&layout=compact&langs_count=7&theme=radical)](https://github.com/barretot)
 
 ### Technologies
