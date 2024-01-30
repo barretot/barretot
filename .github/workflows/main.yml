@@ -10,15 +10,19 @@ jobs:
     name: Jobs to update datas
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       # Snake Animation
-      - uses: Platane/snk@master
-        id: snake-gif
+      - name: Snake Animation
+        uses: Platane/snk@master
         with:
           github_user_name: barretot
           svg_out_path: dist/github-contribution-grid-snake.svg
 
       - name: Push to GitHub Pages
         run: |
+          cd $GITHUB_WORKSPACE # Change to the root directory of the repository
           git remote add pages-remote https://$GITHUB_ACTOR:$PAT_TOKEN@github.com/barretot/barretot.git
           git push -f pages-remote output
         env:
