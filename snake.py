@@ -41,9 +41,11 @@ for i in range(snake_length):
         snake_y -= cell_size
 
 # Desenhar os commits
-for commit in commits:
-    commit_hash = commit.get("sha", "")  # Utilizando get para evitar erros se 'sha' não estiver presente
-    draw.text((margin, height - margin - cell_size), commit_hash, fill=(0, 0, 0))
+if isinstance(commits, list):
+    for commit in commits:
+        if isinstance(commit, dict) and 'sha' in commit:
+            commit_hash = commit['sha'][:7]
+            draw.text((margin, height - margin - cell_size), commit_hash, fill=(0, 0, 0))
 
 # Salvar a imagem como GIF
 buffer = io.BytesIO()
