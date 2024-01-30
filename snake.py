@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 
 # Configurações
 username = "barretot"
-token = "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"
+token = "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"
 repo = "barretot"
 
 # Obter os últimos commits
