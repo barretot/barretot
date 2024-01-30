@@ -35,7 +35,8 @@ I am a Backend Developer
 
 ### GitHub Activity
 
-![Snake animation](https://github.com/barretot/barretot/blob/output/github-contribution-grid-snake.svg)
+![Snake Game](https://raw.githubusercontent.com/barretot/barretot/main/snake.gif)
+
 
 
 
