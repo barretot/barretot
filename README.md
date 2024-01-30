@@ -12,7 +12,7 @@ I am a Backend Developer
   <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ubiratan-motta&layout=compact&langs_count=7&theme=radical"/>
 </div>
 
-### Technologies I Master
+### Technologies
 
 <div style="display: inline_block"><br>
   <img align="center" alt="Node.js" height="40" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
