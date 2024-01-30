@@ -8,6 +8,8 @@ I am a Backend Developer
 
 [![Barretot's GitHub stats](https://github-readme-stats.vercel.app/api?username=barretot&show_icons=true&theme=radical)](https://github.com/barretot)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=barretot&layout=compact&langs_count=7&theme=radical)](https://github.com/barretot)
+![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?barretot&theme=monokai)
+
 
 ### Technologies
 
