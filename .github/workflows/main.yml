@@ -10,33 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install PIL
-      run: pip install Pillow
+      - name: Install PIL
+        run: pip install Pillow
 
-    - name: Generate Snake GIF
-      run: python snake.py
+      - name: Generate Snake GIF
+        run: python snake.py
 
-    - name: Upload Snake GIF
-      uses: actions/upload-artifact@v2
-      with:
-        name: snake.gif
-        path: snake.gif
+      - name: Upload Snake GIF
+        uses: actions/upload-artifact@v2
+        with:
+          name: snake.gif
+          path: snake.gif
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Download Snake GIF
         uses: actions/download-artifact@v2
         with:
           name: snake.gif
-          path: ./  # Onde você quer que o arquivo seja baixado
+          path: ./
+
+      - name: Set up git
+        run: |
+          git config --global user.email "your_email@example.com"
+          git config --global user.name "Your Name"
+          git remote set-url origin https://${{ secrets.PAT }}@github.com/barretot.git
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
           publish_dir: ./
           force_orphan: true
