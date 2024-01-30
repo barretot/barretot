@@ -1,29 +1,25 @@
-name: Generate Datas
+name: Snake
 
 on:
-  schedule: # execute every 6 hours
-    - cron: "* */6 * * *"
-  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
 
 jobs:
   build:
-    name: Jobs to update datas
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      # Snake Animation
-      - name: Snake Animation
-        uses: Platane/snk@master
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          github_user_name: barretot
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          python-version: 3.x
 
-      - name: Push to GitHub Pages
+      - name: Install dependencies
         run: |
-          cd $GITHUB_WORKSPACE # Change to the root directory of the repository
-          git remote add pages-remote https://$GITHUB_ACTOR:$PAT_TOKEN@github.com/barretot/barretot.git
-          git push -f pages-remote output
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run snake script
+        run: python snake.py
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
